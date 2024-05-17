@@ -39,3 +39,5 @@ j
 :Sequence pattern solver/pattern/symetric_pattern_finder.py,c\d\cd4f4807b1931b2ffa0b9b703682bca73b01d9e3
 l
 <Sequence pattern solver/pattern/repetitive_pattern_finder.py,7\4\7474a7e67f8552661e4967b4932e180a161d6693
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
