@@ -59,29 +59,29 @@ class SequencePatternSolver(tk.Tk):
             title_label = Label(self.result_grid, text=title)
             title_label.grid(row=i, column=1)
 
+            formula_title = Label(self.result_grid, text="formula: ")
+            formula_title.grid(row=i, column=2)
+
+            formula_label = Label(self.result_grid, text=response)
+            formula_label.grid(row=i, column=3)
+
             response_title = Label(self.result_grid, text="the next is: ")
-            response_title.grid(row=i, column=2)
+            response_title.grid(row=i, column=4)
 
             # Créer une étiquette pour la réponse (avec un disque rouge ou vert)
             response_label = Label(self.result_grid, text=response)
-            response_label.grid(row=i, column=3)
-
-            formula_title = Label(self.result_grid, text="formula: ")
-            formula_title.grid(row=i, column=4)
-
-            formula_label = Label(self.result_grid, text=response)
-            formula_label.grid(row=i, column=5)
+            response_label.grid(row=i, column=5)
 
     def solve_pattern(self):
         for i, (_, _) in enumerate(self.data):
             disk_label = self.result_grid.grid_slaves(row=i, column=0)[0]
             disk_label.config(fg="red")
 
-            response_label = self.result_grid.grid_slaves(row=i, column=3)[0]
-            response_label.config(text='_')
-
-            formula_label = self.result_grid.grid_slaves(row=i, column=5)[0]
+            formula_label = self.result_grid.grid_slaves(row=i, column=3)[0]
             formula_label.config(text='_')
+
+            response_label = self.result_grid.grid_slaves(row=i, column=5)[0]
+            response_label.config(text='_')
         sequence = self.sequence_entry.get()
         numbers = [int(num) for num in sequence.split() if num.isdigit()]
         if len(numbers) > 2:
@@ -90,15 +90,15 @@ class SequencePatternSolver(tk.Tk):
     def update_grid(self, responses):
         # Parcourir les paires titre/réponse
         for i, (title, answer) in enumerate(self.data):
-            if responses[i][0] is not None and responses [i][0] is not None:
+            if responses[i][0] is not None and responses [i][1] is not None:
                 disk_label = self.result_grid.grid_slaves(row=i, column=0)[0]
                 disk_label.config(fg="green")
 
-                response_label = self.result_grid.grid_slaves(row=i, column=3)[0]
-                response_label.config(text=responses[i][1])
-
-                formula_label = self.result_grid.grid_slaves(row=i, column=5)[0]
+                formula_label = self.result_grid.grid_slaves(row=i, column=3)[0]
                 formula_label.config(text=responses[i][0])
+
+                response_label = self.result_grid.grid_slaves(row=i, column=5)[0]
+                response_label.config(text=responses[i][1])
                 break
 
 
