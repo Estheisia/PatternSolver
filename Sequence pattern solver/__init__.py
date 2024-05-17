@@ -66,24 +66,39 @@ class SequencePatternSolver(tk.Tk):
             response_label = Label(self.result_grid, text=response)
             response_label.grid(row=i, column=3)
 
-    def solve_pattern(self):
-        sequence = self.sequence_entry.get()
-        self.update_grid(self.sequence_processor.process_sequence(sequence))
+            formula_title = Label(self.result_grid, text="formula: ")
+            formula_title.grid(row=i, column=4)
 
-    def update_grid(self, responses):
+            formula_label = Label(self.result_grid, text=response)
+            formula_label.grid(row=i, column=5)
+
+    def solve_pattern(self):
         for i, (_, _) in enumerate(self.data):
             disk_label = self.result_grid.grid_slaves(row=i, column=0)[0]
             disk_label.config(fg="red")
+
             response_label = self.result_grid.grid_slaves(row=i, column=3)[0]
             response_label.config(text='_')
+
+            formula_label = self.result_grid.grid_slaves(row=i, column=5)[0]
+            formula_label.config(text='_')
+        sequence = self.sequence_entry.get()
+        numbers = [int(num) for num in sequence.split() if num.isdigit()]
+        if len(numbers) > 2:
+            self.update_grid(self.sequence_processor.process_sequence(numbers))
+
+    def update_grid(self, responses):
         # Parcourir les paires titre/réponse
-        for i, (title, _) in enumerate(self.data):
-            # Si une réponse est disponible, mettre à jour la grille et sortir de la boucle
-            if responses[i][0] is not None:
+        for i, (title, answer) in enumerate(self.data):
+            if responses[i][0] is not None and responses [i][0] is not None:
                 disk_label = self.result_grid.grid_slaves(row=i, column=0)[0]
                 disk_label.config(fg="green")
+
                 response_label = self.result_grid.grid_slaves(row=i, column=3)[0]
                 response_label.config(text=responses[i][1])
+
+                formula_label = self.result_grid.grid_slaves(row=i, column=5)[0]
+                formula_label.config(text=responses[i][0])
                 break
 
 

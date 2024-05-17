@@ -9,16 +9,9 @@ from pattern.repetitive_pattern_finder import RepetitivePatternFinder
 
 
 class SequenceProcessor:
-    def __init__(self):
-        # Initialisation des attributs
-        self.sequence = None
-
-    def process_sequence(self, sequence):
-        # Enregistrer la séquence reçue depuis la première classe
-        self.sequence = [int(num) for num in sequence.split() if num.isdigit()]
-
+    def process_sequence(self, numbers):
         # Vérifier s'il y a suffisamment de nombres dans la séquence
-        if len(self.sequence) < 3:
+        if len(numbers) < 3:
             return None, None
 
         # Créer une liste pour stocker les réponses récupérées
@@ -39,7 +32,7 @@ class SequenceProcessor:
         # Parcourir les instances de classes de recherche de motif
         for finder in pattern_finders:
             # Appeler la méthode de recherche de motif de chaque instance
-            pattern, next_element = finder.find_pattern(self.sequence)
+            pattern, next_element = finder.find_pattern(numbers)
 
             # Ajouter la réponse à la liste des réponses
             responses.append((pattern, next_element))
