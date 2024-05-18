@@ -6,6 +6,8 @@ from pattern.power_pattern_finder import PowerPatternFinder
 from pattern.prime_pattern_finder import PrimePatternFinder
 from pattern.symetric_pattern_finder import SymmetricPatternFinder
 from pattern.repetitive_pattern_finder import RepetitivePatternFinder
+from pattern.symetrics_pattern_finder import SingleCentralSymmetricPatternFinder
+from pattern.symetrics_pattern_finder import DoubleCentralSymmetricPatternFinder
 
 
 class SequenceProcessor:
@@ -25,8 +27,10 @@ class SequenceProcessor:
             #CubePatternFinder(),
             PowerPatternFinder(),
             PrimePatternFinder(),
-            SymmetricPatternFinder(),
+            #SymmetricPatternFinder(),
             RepetitivePatternFinder(),
+            SingleCentralSymmetricPatternFinder(),
+            DoubleCentralSymmetricPatternFinder(),
         ]
 
         # Parcourir les instances de classes de recherche de motif

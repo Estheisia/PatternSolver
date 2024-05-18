@@ -35,8 +35,10 @@ class SequencePatternSolver(tk.Tk):
             #("Cube", '_'),
             ("Power", '_'),
             ("Prime", '_'),
-            ("Symmetric", '_'),
+            #("Symmetric", '_'),
             ("Repetitive", '_'),
+            ("Single Sym", '_'),
+            ("Double Sym", '_'),
         ]
 
         # Remplir la grille avec les paires titre/réponse
