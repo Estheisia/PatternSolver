@@ -12,8 +12,10 @@ class SymmetricPatternFinder:
                 central_index_floor = math.floor(statistics.mean([index, i]))
                 central_index_ceil = math.ceil(statistics.mean([index, i]))
 
-                # Vérifier que les indices centraux n'ont pas été testés
+                # Vérifier que les indices centraux n'ont pas été testés et qu'ils sont identiques
                 if central_index_floor in tested_central_indices and central_index_ceil in tested_central_indices:
+                    continue
+                if numbers[central_index_ceil] != numbers[central_index_floor]:
                     continue
 
                 # Vérifier la symétrie
